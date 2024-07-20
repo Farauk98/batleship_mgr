@@ -20,6 +20,7 @@ class Ship(models.Model):
 
 class Shot(models.Model):
     board = models.ForeignKey(Board, related_name='shots', on_delete=models.CASCADE)
+    game_session = models.ForeignKey('GameSession', related_name='shots', on_delete=models.CASCADE, null = True)
     x = models.IntegerField()
     y = models.IntegerField()
     hit = models.BooleanField(default=False)

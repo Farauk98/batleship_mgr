@@ -12,6 +12,18 @@
         <li>Ship from ({{ ship.start_x }}, {{ ship.start_y }}) to ({{ ship.end_x }}, {{ ship.end_y }})</li>
         {% endfor %}
     </ul>
+    <a href="{% url 'run_random_strategy' board.id %}">Uruchom strategię losowego strzelania</a>
+    <h2>Sesje Gier</h2>
+    <ul>
+        {% for session in game_sessions %}
+        <li>
+            <a href="{% url 'game_session_detail' session.id %}">
+                Game Session {{ session.id }} - Strategy: {{ session.strategy }} - Moves: {{ session.moves }} - 
+                {% if session.completed %}Completed{% else %}In Progress{% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
     <a href="{% url 'index' %}">Powrót do listy plansz</a>
 </body>
 </html>
