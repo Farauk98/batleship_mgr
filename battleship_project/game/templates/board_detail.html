@@ -1,0 +1,17 @@
+<!-- game/templates/board_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Board {{ board.id }}</title>
+</head>
+<body>
+    <h1>Board {{ board.id }}</h1>
+    <h2>Statki</h2>
+    <ul>
+        {% for ship in ships %}
+        <li>Ship from ({{ ship.start_x }}, {{ ship.start_y }}) to ({{ ship.end_x }}, {{ ship.end_y }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Powrót do listy plansz</a>
+</body>
+</html>

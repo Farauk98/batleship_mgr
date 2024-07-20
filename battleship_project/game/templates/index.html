@@ -1,0 +1,16 @@
+<!-- game/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statki</title>
+</head>
+<body>
+    <h1>Plansze</h1>
+    <ul>
+        {% for board in boards %}
+        <li><a href="{% url 'board_detail' board.id %}">Board {{ board.id }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_board' %}">Stwórz nową planszę</a>
+</body>
+</html>
